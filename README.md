@@ -15,3 +15,8 @@ Software Architecture
 
 1. Monolith
 2. Microservice
+
+Database
+
+1. PostgreSQL
+2. MongoDB
