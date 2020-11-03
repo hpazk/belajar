@@ -10,3 +10,8 @@ Development and Deployment
 
 1. GitHub
 2. Docker
+
+Software Architecture
+
+1. Monolith
+2. Microservice
