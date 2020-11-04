@@ -189,19 +189,47 @@ func main() {
 	// fmt.Println("Student Class Room:", std.classroom)
 	// fmt.Println("Student Mark:", std.mark)
 
-	var std1 = Student{}
-	std1.Person.name = "ltg"
-	std1.classroom = "B"
-	std1.mark = 85
-	std1.Person.age = 26
-	std1.age = 25
+	// var std1 = Student{}
+	// std1.Person.name = "ltg"
+	// std1.classroom = "B"
+	// std1.mark = 85
+	// std1.Person.age = 26
+	// std1.age = 25
 
-	fmt.Println("Student:", std1)
-	fmt.Println("Student Name:", std1.name)
-	fmt.Println("Student Class Room:", std1.classroom)
-	fmt.Println("Student Mark:", std1.mark)
-	fmt.Println("Student Age in Person struct:", std1.age)
-	fmt.Println("Student Age in Student struct:", std1.Person.age)
+	// fmt.Println("Student:", std1)
+	// fmt.Println("Student Name:", std1.name)
+	// fmt.Println("Student Class Room:", std1.classroom)
+	// fmt.Println("Student Mark:", std1.mark)
+	// fmt.Println("Student Age in Person struct:", std1.age)
+	// fmt.Println("Student Age in Student struct:", std1.Person.age)
+
+	// Map
+	person := map[string]string{
+		"name":    "hpazk",
+		"address": "sumedang",
+	}
+
+	// add new key
+	person["title"] = "programmer"
+
+	fmt.Println(person)
+	fmt.Println(len(person))
+
+	// change value
+	person["name"] = "zkh"
+	fmt.Println(person)
+	fmt.Println(len(person))
+
+	//delete mapa data
+	delete(person, "title")
+	fmt.Println(person)
+	fmt.Println(len(person))
+
+	var book map[string]string = make(map[string]string)
+	book["title"] = "Go Lang"
+	book["author"] = "ltg"
+
+	fmt.Println(book)
 }
 
 // function without return type
@@ -287,18 +315,18 @@ If you upload one of your Go projects to GitHub for example, pkg.go.dev will aut
 
 // Embedded Struct
 
-// Person is..
-type Person struct {
-	name    string
-	age     int
-	address string
-}
+// // Person is..
+// type Person struct {
+// 	name    string
+// 	age     int
+// 	address string
+// }
 
-// Student is..
-type Student struct {
-	Person
-	age       int
-	classroom string
-	grade     string
-	mark      int
-}
+// // Student is..
+// type Student struct {
+// 	Person
+// 	age       int
+// 	classroom string
+// 	grade     string
+// 	mark      int
+// }
