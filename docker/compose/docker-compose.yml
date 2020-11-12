@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  mongoserver:
+    container_name: mongoserver
+    image: mongo:4.1
+    ports:
+      - 27017:27017
+    networks:
+      - goapp_net
+  goappserver:
+    container_name: goappserver
+    image: goapp:1.0
+    ports:
+      - 8080:9000
+    depends_on:
+      - mongoserver
+    environment:
+      - MONGO_HOST=mongoserver
+      - MONGO_PORT=27017
+    networks:
+      - goapp_net
+
+networks:
+  goapp_net:
+    name: goapp_net
