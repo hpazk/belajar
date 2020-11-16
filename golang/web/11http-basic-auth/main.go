@@ -44,3 +44,67 @@ func OutputJSON(w http.ResponseWriter, o interface{}) {
 	w.Header().Set("Content-Type", "application/json")
 	w.Write(res)
 }
+
+var students = []*Student{}
+
+// Student is...
+type Student struct {
+	ID    string
+	Name  string
+	Grade int32
+}
+
+// GetStudents is...
+func GetStudents() []*Student {
+	return students
+}
+
+// SelectStudent is...
+func SelectStudent(id string) *Student {
+	for _, each := range students {
+		if each.ID == id {
+			return each
+		}
+	}
+
+	return nil
+}
+
+func init() {
+	students = append(students, &Student{ID: "s001", Name: "bourne", Grade: 2})
+	students = append(students, &Student{ID: "s002", Name: "ethan", Grade: 2})
+	students = append(students, &Student{ID: "s003", Name: "wick", Grade: 3})
+}
+
+// USERNAME is...
+const USERNAME = "hpazk"
+
+// PASSWORD is...
+const PASSWORD = "123#"
+
+// Auth is...
+func Auth(w http.ResponseWriter, r *http.Request) bool {
+	username, password, ok := r.BasicAuth()
+	if !ok {
+		w.Write([]byte(`something went wrong`))
+		return false
+	}
+
+	isValid := (username == USERNAME) && (password == PASSWORD)
+	if !isValid {
+		w.Write([]byte(`wrong username/password`))
+		return false
+	}
+
+	return true
+}
+
+// AllowOnlyGET is...
+func AllowOnlyGET(w http.ResponseWriter, r *http.Request) bool {
+	if r.Method != "GET" {
+		w.Write([]byte("Only GET is allowed"))
+		return false
+	}
+
+	return true
+}
